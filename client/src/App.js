@@ -4,7 +4,7 @@ import { useEffect, useState, useRef } from "react";
 import "./App.css";
 import "./constant.css";
 
-let socket = io("https://chat-production-fad4.up.railway.app/");
+let socket = io("http://localhost:3001/");
 function App() {
   const containerRef = useRef(null);
 
@@ -112,7 +112,7 @@ function App() {
               }}
             >
               <input
-                placeholder="Usuario"
+                placeholder="Id Usuario"
                 name="inputUserName"
                 onChange={changeValueInputId}
                 value={inputUser.inputUserName}
@@ -150,7 +150,7 @@ function App() {
                     message: inputUser.inputMessenger,
                   });
                 } else {
-                  alert("usuario debe ser mayor a 3 letras");
+                  alert("usuario debe ser mayor a 3 caracteres");
                 }
 
                 setInputUser({ ...inputUser, inputMessenger: "" });

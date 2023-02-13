@@ -142,6 +142,13 @@ main {
   color: rgb(78, 98, 128);
 }
 
+.divContainerChat01 > form > input::placeholder {
+  font-size: 1.2rem;
+
+  font-weight: 700;
+  color: rgb(153, 172, 201);
+}
+
 main {
 
 }
