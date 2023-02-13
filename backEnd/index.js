@@ -56,6 +56,7 @@ io.on("connection", function (socket) {
 
   socket.on("disconnect", (text) => {
     console.log("usuario desconectado");
+   socket.disconnect();
 /*     countUser= countUser-1;
     socket.emit("countUser", countUser); */
   });
