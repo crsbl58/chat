@@ -4,7 +4,7 @@ import { useEffect, useState, useRef } from "react";
 import "./App.css";
 import "./constant.css";
 
-let socket = io("https://chat-production-fad4.up.railway.app/");
+let socket = io("https://chatbackend00.osc-fr1.scalingo.io");
 function App() {
   const containerRef = useRef(null);
 
