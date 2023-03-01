@@ -1,6 +1,7 @@
 import io from "socket.io-client";
 
 import { useEffect, useState, useRef } from "react";
+import imgMsgSvg from './img/talking_icon.svg';
 import "./App.css";
 import "./constant.css";
 
@@ -46,7 +47,12 @@ function App() {
       <div className="divContainerComboBoxColor00 flexColumn">
         <div
           onClick={() => {
-            stateComboBox[1](true);
+            if(stateComboBox[0] === true){
+              stateComboBox[1](false);
+            }else{
+              stateComboBox[1](true);
+            }
+            
           }}
           style={{ backgroundColor: hookStateColor[0].stateColor }}
           className="divContainerColorSelection00"
@@ -93,10 +99,9 @@ function App() {
   return (
     <div className="App">
       <header>
-        <h1>Chat en proceso</h1>
-   {/*      <div>
-          <h4>Usuarios</h4> <h4>{stateCount}</h4>
-        </div> */}
+        <img src={imgMsgSvg}></img>
+        <h1>Chat publico en proceso</h1>
+   
       </header>
       <main>
         <div className="divContainerChat00 flexColumn">
@@ -111,8 +116,10 @@ function App() {
                 ); */
               }}
             >
+              <h3>Usuario</h3>
+              <div>
               <input
-                placeholder="Id Usuario"
+              style={{color :stateColor.stateColor}}
                 name="inputUserName"
                 onChange={changeValueInputId}
                 value={inputUser.inputUserName}
@@ -122,13 +129,14 @@ function App() {
                 hookColorCode={colorCode}
                 stateComboBox={[stateComboBox, setStateComboBox]}
               />
+</div>
               {/*      <button name="enviar">Entrar</button> */}
             </form>
           </div>
           <div ref={containerRef} className="divContainerChat02 flexColumn">
             {messengersUsers.map((messengers) => {
               return (
-                <div className="">
+                <div>
                   <h4 style={{ color: messengers.colorCode }}>
                     {messengers.name}
                   </h4>
