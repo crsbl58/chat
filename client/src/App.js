@@ -1,17 +1,17 @@
 import io from "socket.io-client";
 
 import { useEffect, useState, useRef } from "react";
-import imgMsgSvg from './img/talking_icon.svg';
+import imgMsgSvg from "./img/talking_icon.svg";
 import "./App.css";
 import "./constant.css";
-
-let socket = io("https://chatbackend00.osc-fr1.scalingo.io");
+/* https://chatbackend00.osc-fr1.scalingo.io */
+let socket = io("http://localhost:3001/");
 function App() {
   const containerRef = useRef(null);
 
   const [messengersUsers, setMessengersUsers] = useState([{}]);
 
-  const [colorCode, setColorCode] = useState([
+  const [colorCode] = useState([
     { codecolor: "#3a6c94" },
     { codecolor: "brown" },
     { codecolor: "coral" },
@@ -47,12 +47,11 @@ function App() {
       <div className="divContainerComboBoxColor00 flexColumn">
         <div
           onClick={() => {
-            if(stateComboBox[0] === true){
+            if (stateComboBox[0] === true) {
               stateComboBox[1](false);
-            }else{
+            } else {
               stateComboBox[1](true);
             }
-            
           }}
           style={{ backgroundColor: hookStateColor[0].stateColor }}
           className="divContainerColorSelection00"
@@ -85,7 +84,7 @@ function App() {
   }, []);
 
   useEffect(() => {
-    socket.on("countUser", (countUser) => {
+    socket.on("updateNumConnections", (countUser) => {
       setStateCount(countUser);
     });
   }, []);
@@ -99,13 +98,14 @@ function App() {
   return (
     <div className="App">
       <header>
+        
         <img src={imgMsgSvg}></img>
         <h1>Chat publico en proceso</h1>
-   
       </header>
       <main>
         <div className="divContainerChat00 flexColumn">
           <div className="divContainerChat01">
+          {stateCount}
             <form
               className="flexRow"
               onSubmit={(e) => {
@@ -118,19 +118,18 @@ function App() {
             >
               <h3>Usuario</h3>
               <div>
-              <input
-              style={{color :stateColor.stateColor}}
-                name="inputUserName"
-                onChange={changeValueInputId}
-                value={inputUser.inputUserName}
-              ></input>
-              <ComboBoxColor
-                hookStateColor={[stateColor, setStateColor]}
-                hookColorCode={colorCode}
-                stateComboBox={[stateComboBox, setStateComboBox]}
-              />
-</div>
-              {/*      <button name="enviar">Entrar</button> */}
+                <input
+                  style={{ color: stateColor.stateColor }}
+                  name="inputUserName"
+                  onChange={changeValueInputId}
+                  value={inputUser.inputUserName}
+                ></input>
+                <ComboBoxColor
+                  hookStateColor={[stateColor, setStateColor]}
+                  hookColorCode={colorCode}
+                  stateComboBox={[stateComboBox, setStateComboBox]}
+                />
+              </div>
             </form>
           </div>
           <div ref={containerRef} className="divContainerChat02 flexColumn">
