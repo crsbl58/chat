@@ -5,7 +5,7 @@ import imgMsgSvg from "./img/talking_icon.svg";
 import "./App.css";
 import "./constant.css";
 /* https://chatbackend00.osc-fr1.scalingo.io */
-let socket = io("http://localhost:3001/");
+let socket = io("https://chatbackend00.osc-fr1.scalingo.io");
 function App() {
   const containerRef = useRef(null);
 
@@ -98,14 +98,13 @@ function App() {
   return (
     <div className="App">
       <header>
-        
         <img src={imgMsgSvg}></img>
         <h1>Chat publico en proceso</h1>
       </header>
       <main>
         <div className="divContainerChat00 flexColumn">
           <div className="divContainerChat01">
-          {stateCount}
+            {stateCount}
             <form
               className="flexRow"
               onSubmit={(e) => {
