@@ -149,14 +149,37 @@ main {
   border: solid 0.1rem rgb(131, 138, 146);
   width: 100%;
   display: flex;
-  justify-content: center;
+justify-content:space-between;
+align-items: center;
+  gap:.2rem;
+
 }
+.divContainerChat01 > div >img{
+  width: 3rem;
+}
+.divContainerChat01 > div{
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+  gap: .5rem;
+  padding: .3rem 1rem .3rem .3rem;
+  border-radius: 1rem .3rem .3rem 1rem;
+  border:solid .1rem rgb(196, 199, 202);
+margin: 0 0 0 1rem;
+}
+.divContainerChat01 > div > h1{
+  font-family: Montserrat, sans-serif;
+  color: rgb(94, 126, 148);
+}
+
 .divContainerChat01 > form {
   display: flex;
   flex-flow: column nowrap;
   align-items: center;
   gap: 0.2rem;
-  padding: 0.2rem 0 0.2rem 0;
+  padding: 0.2rem 1rem 0.2rem .2rem;
+  border-left:solid .1rem rgb(94, 126, 148);
 }
 .divContainerChat01 > form > h3 {
   font-family: Montserrat, sans-serif;

@@ -2,6 +2,7 @@ import io from "socket.io-client";
 
 import { useEffect, useState, useRef } from "react";
 import imgMsgSvg from "./img/talking_icon.svg";
+import imgUserSvg from "./img/profile.svg";
 import "./App.css";
 import "./constant.css";
 /* https://chatbackend00.osc-fr1.scalingo.io */
@@ -104,7 +105,7 @@ function App() {
       <main>
         <div className="divContainerChat00 flexColumn">
           <div className="divContainerChat01">
-            {stateCount}
+          <div><img src={imgUserSvg}></img><h1>{stateCount}</h1></div>  
             <form
               className="flexRow"
               onSubmit={(e) => {
