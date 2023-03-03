@@ -150,14 +150,14 @@ function App() {
               onSubmit={(e) => {
                 e.preventDefault();
 
-                if (inputUser.inputUserName.length > 3) {
+                if (inputUser.inputUserName.length > 3 && inputUser.inputMessenger.length > 0) {
                   socket.emit("sendMessages", {
                     colorCode: stateColor.stateColor,
                     name: inputUser.inputUserName,
                     message: inputUser.inputMessenger,
                   });
                 } else {
-                  alert("usuario debe ser mayor a 3 caracteres");
+                  alert("usuario debe ser mayor a 3 caracteres o falta escribir mensaje");
                 }
 
                 setInputUser({ ...inputUser, inputMessenger: "" });
