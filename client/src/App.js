@@ -5,8 +5,17 @@ import imgMsgSvg from "./img/talking_icon.svg";
 import imgUserSvg from "./img/profile.svg";
 import "./App.css";
 import "./constant.css";
-/* https://chatbackend00.osc-fr1.scalingo.io */
-let socket = io("https://chatbackend00.osc-fr1.scalingo.io");
+let socket = io("http://localhost:3001/", {
+  transportOptions: {
+    polling: {
+      extraHeaders: {
+        'id': 'bf43916b-fb1c-4a4c-8d3c-c73ebe4dbf39',
+      },
+    },
+  },
+});
+/* let socket = io("https://chatbackend00.osc-fr1.scalingo.io"); */
+
 function App() {
   const containerRef = useRef(null);
 
@@ -133,7 +142,7 @@ function App() {
             </form>
           </div>
           <div ref={containerRef} className="divContainerChat02 flexColumn">
-            {messengersUsers.map((messengers) => {
+       {/*      {messengersUsers.map((messengers) => {
               return (
                 <div>
                   <h4 style={{ color: messengers.colorCode }}>
@@ -142,7 +151,7 @@ function App() {
                   <p>{messengers.message}</p>
                 </div>
               );
-            })}
+            })} */}
           </div>
           <div className="divContainerChat03">
             <form

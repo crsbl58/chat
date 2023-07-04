@@ -21,9 +21,6 @@ let io = require("socket.io")(server, {
 
 io.on("connection", function (socket) {
   console.log("usuario conectado", socket.id);
-/*   countUser= countUser+1;
-  console.log(countUser);
-  socket.emit("countUser", countUser); */
 
   socket.emit("messagesUsers", messages);
 
@@ -45,19 +42,10 @@ io.on("connection", function (socket) {
         },
       ];
     }
-
-    /*   let busqueda = users.filter((list) => list.id == text.id);
-    if (busqueda == false) {
-      users.push({ id: text?.id });
-      console.log(users);
-      io.emit("listUsers", users);
-    } */
   });
 
   socket.on("disconnect", (text) => {
     console.log("usuario desconectado");
    socket.disconnect();
-/*     countUser= countUser-1;
-    socket.emit("countUser", countUser); */
   });
 });
