@@ -5,7 +5,7 @@ import imgMsgSvg from "./img/talking_icon.svg";
 import imgUserSvg from "./img/profile.svg";
 import "./App.css";
 import "./constant.css";
-let socket = io("http://localhost:3001");
+let socket = io("https://testsss.osc-fr1.scalingo.io");
 /*  let socket = io("https://testsss.osc-fr1.scalingo.io"); */
 
 function App() {
