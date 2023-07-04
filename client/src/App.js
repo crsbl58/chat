@@ -5,24 +5,16 @@ import imgMsgSvg from "./img/talking_icon.svg";
 import imgUserSvg from "./img/profile.svg";
 import "./App.css";
 import "./constant.css";
-/* let socket = io("http://localhost:3001/", {
-  transportOptions: {
-    polling: {
-      extraHeaders: {
-        'id': 'bf43916b-fb1c-4a4c-8d3c-c73ebe4dbf39',
-      },
-    },
-  },
-}); */
- let socket = io("https://testsss.osc-fr1.scalingo.io");
+let socket = io("http://localhost:3001");
+/*  let socket = io("https://testsss.osc-fr1.scalingo.io"); */
 
 function App() {
   const containerRef = useRef(null);
 
-  const [messengersUsers, setMessengersUsers] = useState([{}]);
+  const [stateMessengersUsers, setStateMessengersUsers] = useState([{}]);
 
   const [colorCode] = useState([
-    { codecolor: "#3a6c94" },
+    { codecolor: "red" },
     { codecolor: "brown" },
     { codecolor: "coral" },
     { codecolor: "blueviolet" },
@@ -89,7 +81,8 @@ function App() {
 
   useEffect(() => {
     socket.on("messagesUsers", (messengersUsers) => {
-      setMessengersUsers(messengersUsers);
+      setStateMessengersUsers(messengersUsers);
+      console.log("messagesUsers", messengersUsers);
     });
   }, []);
 
@@ -103,7 +96,7 @@ function App() {
     let totalHeightScroll =
       containerRef.current.scrollHeight - containerRef.current.offsetHeight;
     containerRef.current.scrollTop = totalHeightScroll;
-  }, [messengersUsers]);
+  }, [stateMessengersUsers]);
 
   return (
     <div className="App">
@@ -114,7 +107,10 @@ function App() {
       <main>
         <div className="divContainerChat00 flexColumn">
           <div className="divContainerChat01">
-          <div><img src={imgUserSvg}></img><h1>{stateCount}</h1></div>  
+            <div>
+              <img src={imgUserSvg}></img>
+              <h1>{stateCount}</h1>
+            </div>
             <form
               className="flexRow"
               onSubmit={(e) => {
@@ -142,7 +138,7 @@ function App() {
             </form>
           </div>
           <div ref={containerRef} className="divContainerChat02 flexColumn">
-       {/*      {messengersUsers.map((messengers) => {
+            {stateMessengersUsers.map((messengers) => {
               return (
                 <div>
                   <h4 style={{ color: messengers.colorCode }}>
@@ -151,7 +147,7 @@ function App() {
                   <p>{messengers.message}</p>
                 </div>
               );
-            })} */}
+            })}
           </div>
           <div className="divContainerChat03">
             <form
@@ -159,14 +155,19 @@ function App() {
               onSubmit={(e) => {
                 e.preventDefault();
 
-                if (inputUser.inputUserName.length > 3 && inputUser.inputMessenger.length > 0) {
+                if (
+                  inputUser.inputUserName.length > 3 &&
+                  inputUser.inputMessenger.length > 0
+                ) {
                   socket.emit("sendMessages", {
                     colorCode: stateColor.stateColor,
                     name: inputUser.inputUserName,
                     message: inputUser.inputMessenger,
                   });
                 } else {
-                  alert("usuario debe ser mayor a 3 caracteres o falta escribir mensaje");
+                  alert(
+                    "usuario debe ser mayor a 3 caracteres o falta escribir mensaje"
+                  );
                 }
 
                 setInputUser({ ...inputUser, inputMessenger: "" });

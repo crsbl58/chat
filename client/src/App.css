@@ -3,7 +3,7 @@ header {
   display: flex;
   flex-flow: row nowrap;
   justify-content: center;
-  gap: .5rem;
+  gap: 0.5rem;
 }
 header > img {
   width: 5rem;
@@ -38,23 +38,25 @@ main {
 .divContainerComboBoxColor01 {
   position: absolute;
   top: 2.3rem;
-  border-left: 0.1rem solid rgb(78, 77, 77);
-  border-right: 0.1rem solid rgb(78, 77, 77);
-  border-bottom: 0.1rem solid rgb(78, 77, 77);
+  border-left: 0.1rem solid rgb(214, 212, 212);
+  border-right: 0.1rem solid rgb(214, 212, 212);
+  border-bottom: 0.1rem solid rgb(214, 212, 212);
+  border-radius: 0 0 1rem 1rem;
+  overflow: hidden;
 }
 .divContainerComboBoxColor01 > div > div {
   width: 1.4rem;
   height: 1.4rem;
   border: solid 0.1rem rgb(78, 77, 77);
+  border-radius: 50%;
 }
 .divContainerComboBoxColor01 > div {
   padding: 0.2rem;
-  background-color: rgb(255, 255, 255);
+  background-color: rgb(236, 231, 231);
 }
 .divContainerChat02 {
-  border-left: solid 0.1rem rgb(76, 87, 95);
-  border-right: solid 0.1rem rgb(76, 87, 95);
-  border-bottom: solid 0.1rem rgb(76, 87, 95);
+  border: solid 0.1rem rgb(76, 87, 95);
+  background-color: #eff3f5;
   gap: 0.5rem;
   align-items: baseline;
   width: 18rem;
@@ -149,26 +151,25 @@ main {
   border: solid 0.1rem rgb(131, 138, 146);
   width: 100%;
   display: flex;
-justify-content:space-between;
-align-items: center;
-  gap:.2rem;
-
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.2rem;
 }
-.divContainerChat01 > div >img{
+.divContainerChat01 > div > img {
   width: 3rem;
 }
-.divContainerChat01 > div{
+.divContainerChat01 > div {
   display: flex;
   flex-flow: row nowrap;
   justify-content: center;
   align-items: center;
-  gap: .5rem;
-  padding: .3rem 1rem .3rem .3rem;
-  border-radius: 1rem .3rem .3rem 1rem;
-  border:solid .1rem rgb(196, 199, 202);
-margin: 0 0 0 1rem;
+  gap: 0.5rem;
+  padding: 0.3rem 1rem 0.3rem 0.3rem;
+  border-radius: 1rem 0.3rem 0.3rem 1rem;
+  border: solid 0.1rem rgb(196, 199, 202);
+  margin: 0 0 0 1rem;
 }
-.divContainerChat01 > div > h1{
+.divContainerChat01 > div > h1 {
   font-family: Montserrat, sans-serif;
   color: rgb(94, 126, 148);
 }
@@ -178,8 +179,8 @@ margin: 0 0 0 1rem;
   flex-flow: column nowrap;
   align-items: center;
   gap: 0.2rem;
-  padding: 0.2rem 1rem 0.2rem .2rem;
-  border-left:solid .1rem rgb(94, 126, 148);
+  padding: 0.2rem 1rem 0.2rem 0.2rem;
+  border-left: solid 0.1rem rgb(94, 126, 148);
 }
 .divContainerChat01 > form > h3 {
   font-family: Montserrat, sans-serif;
@@ -206,5 +207,3 @@ margin: 0 0 0 1rem;
   font-weight: 700;
   color: rgb(153, 172, 201);
 }
-
-
